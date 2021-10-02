@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Switch, Route, useLocation } from "react-router";
+import { Normalize } from 'styled-normalize';
+import { ThemeProvider } from "styled-components";
+import { AnimatePresence } from "framer-motion";
+import { GlobalStyle } from "./GlobalStyles";
+import { theme } from './theme';
+import Home from "./home/Home";
+import Header from "./header/Header";
 
-function App() {
+const App = () => {
+  const location = useLocation();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Normalize />
+      <GlobalStyle />
+      <Header />
+      <AnimatePresence>
+        <Switch location={location} key={location.key}>
+          <Route exact path='/' component={Home} />
+        </Switch>
+      </AnimatePresence>
+    </ThemeProvider>
   );
 }
 
