@@ -7,6 +7,7 @@ import { GlobalStyle } from "./GlobalStyles";
 import { theme } from './theme';
 import Home from "./home/Home";
 import Header from "./header/Header";
+import NavBar from "./navigation/NavBar";
 
 const App = () => {
   const location = useLocation();
@@ -16,6 +17,7 @@ const App = () => {
       <Normalize />
       <GlobalStyle />
       <Header />
+      <NavBar />
       <AnimatePresence>
         <Switch location={location} key={location.key}>
           <Route exact path='/' component={Home} />
