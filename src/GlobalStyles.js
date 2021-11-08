@@ -11,6 +11,10 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
 
+    section {
+        margin: 0 auto;
+    }
+
     a {
         text-decoration: none;
         color: inherit;

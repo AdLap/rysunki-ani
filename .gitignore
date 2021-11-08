@@ -54,3 +54,5 @@ yarn-error.log*
 !.vscode/*.code-snippets
 
 # End of https://www.toptal.com/developers/gitignore/api/firebase
+
+/obrazki

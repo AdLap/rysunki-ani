@@ -6,7 +6,7 @@ export const StyledNavBar = styled.nav`
     width: 100%;
 
     div {
-        max-width: 1200px;
+        max-width: ${({ theme }) => theme.mainContainer};
         height: 100%;
         margin: 0 auto;
         display: flex;
