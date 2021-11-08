@@ -5,10 +5,8 @@ export const TitleMain = styled.h1`
     width: 100%;
     max-width: 1200px;
     font-size: 3rem;
-    line-height: 400px;
     text-transform: uppercase;
     text-align: center;
-
 `;
 
 export const TitleAge = styled.span`

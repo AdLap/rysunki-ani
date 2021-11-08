@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const StyledNavBar = styled.nav`
-    border: 1px solid blue;
     height: 100px;
     width: 100%;
 
@@ -17,7 +16,9 @@ export const StyledNavBar = styled.nav`
     a {
         border: 1px solid transparent;
         text-transform: uppercase;
-        padding: 1em 2em;
+        text-align: center;
+       // padding: 1em;
+       // border: 1px solid blue;
 
         &:hover {
             color: ${({ theme }) => theme.randomColor};
