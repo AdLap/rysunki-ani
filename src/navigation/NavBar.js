@@ -8,7 +8,7 @@ const NavBar = () => {
             <div>
                 <NavLink to='/'>To ja</NavLink>
                 <NavLink to='/na-plotnie'>Na płótnie</NavLink>
-                <NavLink to='/'>Na papierze</NavLink>
+                <NavLink to='/szkice'>Szkice</NavLink>
             </div>
         </StyledNavBar>
     );

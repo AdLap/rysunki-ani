@@ -1,27 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
+import { GalleryContext } from "../context/Gallery.context";
 import { CanvasSection, Picture } from "./OnCanvas.styled";
-import { db } from '../firebase/firebase';
-import { collection, getDocs } from 'firebase/firestore';
+
 
 const OnCanvas = () => {
-    const [pics, setPics] = useState([]);
-    const picsRef = collection(db, 'canvas');
-
-    useEffect(() => {
-        const getPics = async () => {
-            const data = await getDocs(picsRef);
-            setPics(data.docs.map((doc) => ({ ...doc.data() })))
-        }
-
-        getPics();
-    }, [])
+    const { canvasPics, error } = useContext(GalleryContext);
 
     return (
         <CanvasSection>
             {
-                pics.map((pic, idx) => (
-                    <Picture>
-                        <img src={pic.thumb} alt='obrazek na płótnie' key={idx} />
+                canvasPics.map((pic, idx) => (
+                    <Picture key={idx}>
+                        <img src={pic.thumb} alt='obrazek na płótnie' />
                     </Picture>
                 ))
             }
