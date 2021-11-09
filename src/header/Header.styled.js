@@ -3,7 +3,7 @@ import bg from '../assets/bg-header.jpg';
 
 export const StyledHeader = styled.header`
     width: 100%;
-    height: 400px;
+    height: 30vh;
     background: url(${bg}) no-repeat top/cover;
     display: flex;
     justify-content: center;

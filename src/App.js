@@ -8,6 +8,7 @@ import { theme } from './theme';
 import Home from "./home/Home";
 import Header from "./header/Header";
 import NavBar from "./navigation/NavBar";
+import OnCanvas from "./onCanvas/OnCanvas";
 
 const App = () => {
   const location = useLocation();
@@ -21,6 +22,7 @@ const App = () => {
       <AnimatePresence>
         <Switch location={location} key={location.key}>
           <Route exact path='/' component={Home} />
+          <Route path='/na-plotnie' component={OnCanvas} />
         </Switch>
       </AnimatePresence>
     </ThemeProvider>

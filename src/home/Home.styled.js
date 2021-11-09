@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledHomeSection = styled.section`
     max-width: ${({ theme }) => theme.mainContainer};
+    width: 100%;
     display: grid;
     gap: 1rem;
     padding: 0 1rem;
