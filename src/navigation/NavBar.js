@@ -9,6 +9,7 @@ const NavBar = () => {
                 <NavLink to='/'>To ja</NavLink>
                 <NavLink to='/na-plotnie'>Na płótnie</NavLink>
                 <NavLink to='/szkice'>Szkice</NavLink>
+                <NavLink to='/'>Kontakt</NavLink>
             </div>
         </StyledNavBar>
     );

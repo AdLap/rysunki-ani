@@ -1,23 +1,15 @@
 import styled from "styled-components";
 
 export const StyledHomeSection = styled.section`
-    max-width: ${({ theme }) => theme.mainContainer};
-    width: 100%;
     display: grid;
     gap: 1rem;
-    padding: 0 1rem;
 
     @media (min-width: ${({ theme }) => theme.tablet}) {
         grid-template-columns: repeat(2, 50%);
     }
-
-    @media (minn-width: ${({ theme }) => theme.desktop}) {
-        padding: 0 0 2rem 0;
-    }
 `;
 
 export const StyledMePicture = styled.div`
-
     img {
         width: 100%;
         height: auto;

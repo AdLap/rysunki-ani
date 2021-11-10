@@ -16,9 +16,6 @@ export const GalleryProvider = ({ children }) => {
     const getPics = async () => {
 
         try {
-            // if (status !== 200) {
-            //     throw new Error('Nie można załadować obrazków, spróbuj ponownie');
-            // }
             const dataCanvas = await getDocs(canvasPicsRef);
             setCanvasPics(dataCanvas.docs.map((doc) => ({ ...doc.data() })));
             const dataSketch = await getDocs(sketchPicsRef);

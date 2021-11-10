@@ -18,8 +18,6 @@ export const StyledNavBar = styled.nav`
         border: 1px solid transparent;
         text-transform: uppercase;
         text-align: center;
-       // padding: 1em;
-       // border: 1px solid blue;
 
         &:hover {
             color: ${({ theme }) => theme.randomColor};

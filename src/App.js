@@ -11,6 +11,8 @@ import Header from "./header/Header";
 import NavBar from "./navigation/NavBar";
 import OnCanvas from "./onCanvas/OnCanvas";
 import Sketch from "./Sketch/Sketch";
+import Footer from "./footer/Footer";
+import Contact from "./contact/Contact";
 
 
 const App = () => {
@@ -28,8 +30,10 @@ const App = () => {
             <Route exact path='/' component={Home} />
             <Route path='/na-plotnie' component={OnCanvas} />
             <Route path='/szkice' component={Sketch} />
+            <Route path='/kontakt' component={Contact} />
           </Switch>
         </AnimatePresence>
+        <Footer />
       </ThemeProvider>
     </GalleryProvider>
   );

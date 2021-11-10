@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { GalleryContext } from "../context/Gallery.context";
-import { CanvasSection, Picture } from "./OnCanvas.styled";
+import { GallerySectionStyled } from "../utility/Gallery.styled";
 import Error from '../utility/Error';
 
 
@@ -8,20 +8,20 @@ const OnCanvas = () => {
     const { canvasPics, error } = useContext(GalleryContext);
 
     return (
-        <CanvasSection>
+        <GallerySectionStyled>
             {
                 canvasPics.length ?
                     canvasPics.map((pic, idx) => (
-                        <Picture key={idx}>
+                        <div key={idx}>
                             <img src={pic.thumb} alt='obrazek na płótnie' />
-                        </Picture>
+                        </div>
                     )) :
                     !error && <h3>loading...</h3>
             }
             {
                 error && <Error error={error} />
             }
-        </CanvasSection>
+        </GallerySectionStyled>
     );
 }
 
