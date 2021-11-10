@@ -8,32 +8,34 @@ const { Provider } = GalleryContext;
 export const GalleryProvider = ({ children }) => {
     const [canvasPics, setCanvasPics] = useState([]);
     const [sketchPics, setSketchPics] = useState([]);
-    const [error, setError] = useState('');
+    const [error, setError] = useState(false);
 
     const canvasPicsRef = collection(db, 'canvas');
     const sketchPicsRef = collection(db, 'sketch');
 
-    const getCanvasPics = async () => {
-        const data = await getDocs(canvasPicsRef);
-        setCanvasPics(data.docs.map((doc) => ({ ...doc.data() })));
-    }
+    const getPics = async () => {
 
-    const getSketchPics = async () => {
-        const data = await getDocs(sketchPicsRef);
-        setSketchPics(data.docs.map((doc) => ({ ...doc.data() })));
-    }
+        try {
+            // if (status !== 200) {
+            //     throw new Error('Nie można załadować obrazków, spróbuj ponownie');
+            // }
+            const dataCanvas = await getDocs(canvasPicsRef);
+            setCanvasPics(dataCanvas.docs.map((doc) => ({ ...doc.data() })));
+            const dataSketch = await getDocs(sketchPicsRef);
+            setSketchPics(dataSketch.docs.map((doc) => ({ ...doc.data() })));
+        } catch (err) {
+            console.log(err)
+            setError(err)
+        }
+    };
 
     useEffect(() => {
-        try {
-            getCanvasPics();
-            getSketchPics();
-        } catch (err) {
-            setError(err.message)
-        }
+        const abortGetPics = new AbortController();
 
+        getPics();
+
+        return () => abortGetPics.abort();
     }, []);
-
-
 
     return (
         <Provider value={{

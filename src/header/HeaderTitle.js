@@ -11,8 +11,8 @@ const HeaderTitle = () => {
             setColorChange(prev => prev + 1)
         }, 1000)
 
-        return() => colorInterval();
-    },[])
+        return () => clearInterval(colorInterval);
+    }, [])
 
     return (
         <TitleMain>
@@ -20,7 +20,7 @@ const HeaderTitle = () => {
                 title.split('').map((letter, idx) => (
                     <span
                         key={`${letter}-${idx}`}
-                        style={{color: `#${Math.floor(Math.random() * 16777215).toString(16)}`}}
+                        style={{ color: `#${Math.floor(Math.random() * 16777215).toString(16)}` }}
                     >
                         {letter}
                     </span>
