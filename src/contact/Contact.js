@@ -11,19 +11,17 @@ const validationSchema = Yup.object({
     message: Yup.string().min(10).required()
 });
 
+
 const Contact = () => {
     const { register, formState: { errors }, handleSubmit } = useForm({
         resolver: yupResolver(validationSchema)
     });
     const onSubmit = (data) => {
-        console.log(data);
-        // event.preventDefalut();
-
         emailjs.send(
-            process.env.EMAILJS_SERVICE_ID,
-            process.env.EMAILJS_TEMPLATE_ID,
+            'email_AnnaGallery',
+            'AnnaGallery',
             data,
-            process.env.EMAILJS_PUBLIC_KEY
+            'AxE3JnpPFN08AbJvQ'
         )
             .then(result => {
                 console.log('result', result.text)
