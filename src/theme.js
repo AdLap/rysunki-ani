@@ -3,6 +3,8 @@ export const theme = {
     whiteColor: '#ffffff',
     darkColor: '#e1e1e1',
     errorColor: '#ff0000',
+    spinnerBackgroundColor: '#e1e1e180',
+    spinnerColor: '#000000',
   //  adLapColor: '#ffd700',
     mainContainer: '1200px',
     tablet: '750px',

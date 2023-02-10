@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import emailjs from '@emailjs/browser';
 import { FormSection, FormStyled, InputSubmit, LabelStyled } from './Contact.styled';
 import { ErrorStyled } from '../global/Error.styled';
+import { Spinner } from '../global/Spinner.styled';
 
 const validationSchema = Yup.object({
     name: Yup.string().min(2).required(),
@@ -20,30 +21,26 @@ const validationError = {
 
 const Contact = () => {
     const [submitting, setSubmitting] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState(false);
     const { register, formState: { errors }, handleSubmit } = useForm({
         resolver: yupResolver(validationSchema)
     });
 
     const onSubmit = async (data) => {
-        // emailjs.send(
-        //     'email_AnnaGallery',
-        //     'AnnaGallery',
-        //     data,
-        //     'AxE3JnpPFN08AbJvQ'
-        // )
-        //     .then(result => {
-        //         console.log('result', result.text)
-        //     }, error => {
-        //         console.log('send error', error.text)
-        //     });
-        setSubmitting(true);
         try {
+            setSubmitting(state => !state);
             const result = await emailjs.send('email_AnnaGallery', 'AnnaGallery', data, 'AxE3JnpPFN08AbJvQ')
-            console.log('try::', result)
+            if (result.text === 'OK') {
+                setSubmitting(state => !state);
+                setSuccess(() => true);
+                console.log(result)
+            }
         } catch (error) {
             console.log('error catch::', error)
+            setError(() => true);
         } finally {
-            setSubmitting(false);
+            setSubmitting(() => false);
         }
     }
 
@@ -72,6 +69,9 @@ const Contact = () => {
                     Wyślij
                 </InputSubmit>
             </FormStyled>
+            {
+                submitting && <Spinner />
+            }
         </FormSection>
     );
 }
