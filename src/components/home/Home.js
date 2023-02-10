@@ -1,6 +1,6 @@
 import React from "react";
 import { StyledHomeSection, StyledMeDescription, StyledMePicture } from "./Home.styled";
-import homePic from '../assets/kot.jpg';
+import homePic from '../../assets/kot.jpg';
 
 const Home = () => {
     return (

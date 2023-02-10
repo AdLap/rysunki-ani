@@ -11,13 +11,6 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
 
-    .error {
-        color: red;
-        font-size: .8rem;
-        line-height: 1.5em;
-        color: ${({ theme }) => theme.errorColor};
-    }
-
     section {
         max-width: 1200px;
         width: 100%;

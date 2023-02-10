@@ -6,13 +6,13 @@ import { ThemeProvider } from "styled-components";
 import { AnimatePresence } from "framer-motion";
 import { GlobalStyle } from "./GlobalStyles";
 import { theme } from './theme';
-import Home from "./home/Home";
-import Header from "./header/Header";
-import NavBar from "./navigation/NavBar";
-import OnCanvas from "./onCanvas/OnCanvas";
-import Sketch from "./Sketch/Sketch";
-import Footer from "./footer/Footer";
-import Contact from "./contact/Contact";
+import Home from "./components/home/Home";
+import Header from "./components/header/Header";
+import NavBar from "./components/navigation/NavBar";
+import OnCanvas from "./components/galleries/onCanvas/OnCanvas";
+import Sketch from "./components/galleries/Sketch/Sketch";
+import Footer from "./components/footer/Footer";
+import Contact from "./components/contact/Contact";
 
 
 const App = () => {
