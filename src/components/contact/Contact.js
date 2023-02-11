@@ -5,6 +5,9 @@ import * as Yup from 'yup';
 import emailjs from '@emailjs/browser';
 import { FormSection, FormStyled, InputSubmit, LabelStyled } from './Contact.styled';
 import { ErrorStyled } from '../global/Error.styled';
+import { Spinner } from '../global/Spinner.styled';
+import Success from '../global/Success';
+import Error from '../global/Error';
 
 const validationSchema = Yup.object({
     name: Yup.string().min(2).required(),
@@ -12,7 +15,7 @@ const validationSchema = Yup.object({
     message: Yup.string().min(10).required()
 });
 
-const validationError = {
+const validationErrorMessages = {
     name: 'Wpisz swoje Imię',
     email: 'Wpisz prawdłowy adres email',
     message: 'Napisz dłuższą wiadomość'
@@ -20,30 +23,46 @@ const validationError = {
 
 const Contact = () => {
     const [submitting, setSubmitting] = useState(false);
-    const { register, formState: { errors }, handleSubmit } = useForm({
+    const [success, setSuccess] = useState({
+        state: false,
+        message: ''
+    });
+    const [error, setError] = useState({
+        state: false,
+        message: ''
+    });
+    const { register, formState: { errors }, handleSubmit, reset } = useForm({
         resolver: yupResolver(validationSchema)
     });
 
+    const showingSuccess = () => {
+        setSuccess({
+            state: true,
+            message: 'Wiadomość wysłana'
+        });
+        setTimeout(() => {
+            setSuccess({
+                state: false,
+                message: ''
+            })
+        }, 2000)
+    }
+
     const onSubmit = async (data) => {
-        // emailjs.send(
-        //     'email_AnnaGallery',
-        //     'AnnaGallery',
-        //     data,
-        //     'AxE3JnpPFN08AbJvQ'
-        // )
-        //     .then(result => {
-        //         console.log('result', result.text)
-        //     }, error => {
-        //         console.log('send error', error.text)
-        //     });
-        setSubmitting(true);
+        setSubmitting(() => true);
         try {
             const result = await emailjs.send('email_AnnaGallery', 'AnnaGallery', data, 'AxE3JnpPFN08AbJvQ')
-            console.log('try::', result)
+            if (result.text === 'OK') {
+                showingSuccess();
+            }
+            reset();
         } catch (error) {
-            console.log('error catch::', error)
+            setError({
+                state: true,
+                message: error
+            });
         } finally {
-            setSubmitting(false);
+            setSubmitting(() => false);
         }
     }
 
@@ -53,25 +72,34 @@ const Contact = () => {
                 <LabelStyled htmlFor='name'>
                     Imię
                     <input {...register('name')} />
-                    {errors.name && <ErrorStyled>{validationError.name}</ErrorStyled>}
+                    {errors.name && <ErrorStyled>{validationErrorMessages.name}</ErrorStyled>}
                 </LabelStyled>
 
                 <LabelStyled htmlFor='email'>
                     Email
                     <input {...register('email')} />
-                    {errors.email && <ErrorStyled>{validationError.email}</ErrorStyled>}
+                    {errors.email && <ErrorStyled>{validationErrorMessages.email}</ErrorStyled>}
                 </LabelStyled>
 
                 <LabelStyled htmlFor='message'>
                     Wiadomość
                     <textarea rows='4' {...register('message')} />
-                    {errors.message && <ErrorStyled>{validationError.message}</ErrorStyled>}
+                    {errors.message && <ErrorStyled>{validationErrorMessages.message}</ErrorStyled>}
                 </LabelStyled>
 
                 <InputSubmit type='submit'>
                     Wyślij
                 </InputSubmit>
             </FormStyled>
+            {
+                submitting && <Spinner />
+            }
+            {
+                success.state && <Success message={success.message} />
+            }
+            {
+                error.state && <Error error={error.message} />
+            }
         </FormSection>
     );
 }
