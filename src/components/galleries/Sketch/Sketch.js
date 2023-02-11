@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { GalleryContext } from "../context/Gallery.context";
-import { GallerySectionStyled } from "../utility/Gallery.styled";
-import Error from "../utility/Error";
+import { GalleryContext } from "../../../context/Gallery.context";
+import Error from "../../global/Error";
+import { GallerySectionStyled } from "../../global/Gallery.styled";
 
 const Sketch = () => {
     const { sketchPics, error } = useContext(GalleryContext);
