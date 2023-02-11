@@ -59,7 +59,7 @@ const Contact = () => {
         } catch (error) {
             setError({
                 state: true,
-                message: error
+                message: 'Wiadomość nie wysłana, spróbuj poźniej'
             });
         } finally {
             setSubmitting(() => false);
@@ -90,6 +90,9 @@ const Contact = () => {
                 <InputSubmit type='submit'>
                     Wyślij
                 </InputSubmit>
+                {
+                    error.state && <Error error={error.message} />
+                }
             </FormStyled>
             {
                 submitting && <Spinner />
@@ -97,9 +100,7 @@ const Contact = () => {
             {
                 success.state && <Success message={success.message} />
             }
-            {
-                error.state && <Error error={error.message} />
-            }
+
         </FormSection>
     );
 }
