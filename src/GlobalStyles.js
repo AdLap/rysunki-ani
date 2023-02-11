@@ -1,8 +1,11 @@
 import { createGlobalStyle } from "styled-components/macro";
 
 export const GlobalStyle = createGlobalStyle`
+     @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;0,900;1,400;1,700&display=swap');
+
     html {
         font-size: 18px;
+        font-family: 'Lato', sans-serif;
     }
 
     * {
@@ -35,9 +38,9 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     input, textarea {
+        max-width: 100%;
         margin-top: .5rem;
         border-bottom: 1px solid;
         border-image-slice: 1;
         border-image-source: linear-gradient(to right, rgb(238, 162, 162) 0%, rgb(187, 193, 191) 19%, rgb(87, 198, 225) 42%, rgb(180, 159, 218) 79%, rgb(122, 197, 216) 100%);    
-    }
 `;
