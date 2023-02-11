@@ -7,7 +7,6 @@ const Error = ({ error }) => {
         <ErrorStyled>
             {error.message}
         </ErrorStyled>
-
     );
 }
 
