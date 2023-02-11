@@ -10,5 +10,8 @@ export const theme = {
     mainContainer: '1200px',
     tablet: '750px',
     laptop: '1024px',
-    desktop: '1200px'
+    desktop: '1200px',
+
+  // breakpoints:
+    screenMd: 'min-width: 767px'
 };
