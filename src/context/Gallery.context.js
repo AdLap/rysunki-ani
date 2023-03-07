@@ -8,6 +8,7 @@ const { Provider } = GalleryContext;
 export const GalleryProvider = ({ children }) => {
     const [canvasPics, setCanvasPics] = useState([]);
     const [sketchPics, setSketchPics] = useState([]);
+    // const [stonePics, setStonePics] = useState([]); // TODO
     const [error, setError] = useState(false);
 
     const canvasPicsRef = collection(db, 'canvas');
