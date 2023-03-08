@@ -31,8 +31,8 @@ const App = () => {
 						<Route path='/plotna' element={<OnCanvas />} />
 						<Route path='/szkice' element={<Sketch />} />
 						<Route path='/kamienie' element={<Stone />} />
-						<Route path='/kontakt' element={<Contact />} />
 					</Routes>
+					<Contact />
 				</AnimatePresence>
 				<Footer />
 			</ThemeProvider>
