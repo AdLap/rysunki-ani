@@ -3,20 +3,15 @@ import { GalleryContext } from '../../../context/Gallery.context'
 import Error from '../../global/Error'
 import { GallerySectionStyled } from '../../global/Gallery.styled'
 
-const Stone = () => {
-	const { stonePics, error } = useContext(GalleryContext)
+const Sketch = () => {
+	const { sketchPics, error } = useContext(GalleryContext)
 
 	return (
 		<GallerySectionStyled>
-			{stonePics.length
-				? stonePics.map((pic, idx) => (
+			{sketchPics.length
+				? sketchPics.map((pic, idx) => (
 						<div key={idx}>
-							<img
-								src={pic.thumb}
-								alt='obrazek na kamieniu'
-								width='300'
-								height='405'
-							/>
+							<img src={pic.thumb} alt='szkic' width='300' height='405' />
 						</div>
 				  ))
 				: !error && <h3>loading...</h3>}
@@ -25,4 +20,4 @@ const Stone = () => {
 	)
 }
 
-export default Stone
+export default Sketch

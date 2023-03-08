@@ -6,10 +6,12 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Lato', sans-serif;
     }
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+    body {
+        overflow-x: hidden;
+    }
+
+    #root {
+        width: 100vw;
     }
 
     section {
