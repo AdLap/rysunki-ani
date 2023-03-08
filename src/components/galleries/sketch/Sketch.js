@@ -1,22 +1,12 @@
 import React, { useContext } from 'react'
 import { GalleryContext } from '../../../context/Gallery.context'
-import Error from '../../global/Error'
-import { GallerySectionStyled } from '../../global/Gallery.styled'
+import Gallery from '../Gallery'
 
 const Sketch = () => {
-	const { sketchPics, error } = useContext(GalleryContext)
+	const { sketchPics } = useContext(GalleryContext)
 
 	return (
-		<GallerySectionStyled>
-			{sketchPics.length
-				? sketchPics.map((pic, idx) => (
-						<div key={idx}>
-							<img src={pic.thumb} alt='szkic' width='300' height='405' />
-						</div>
-				  ))
-				: !error && <h3>loading...</h3>}
-			{error && <Error error={error} />}
-		</GallerySectionStyled>
+		<Gallery items={sketchPics} />
 	)
 }
 
