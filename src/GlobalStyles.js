@@ -6,6 +6,12 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Lato', sans-serif;
     }
 
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
     body {
         overflow-x: hidden;
     }
@@ -35,6 +41,10 @@ export const GlobalStyle = createGlobalStyle`
     input, button {
         border: none;
         outline: none;
+    }
+
+    button {
+        cursor: pointer;
     }
 
     input, textarea {
