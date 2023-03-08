@@ -44,8 +44,8 @@ export const GalleryProvider = ({ children }) => {
 				setCanvasPics,
 				sketchPics,
 				setSketchPics,
-                stonePics,
-                setStonePics,
+				stonePics,
+				setStonePics,
 				error,
 				setError,
 			}}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
@@ -10,11 +10,14 @@ import {
 	LabelStyled,
 	OpenButton,
 	StyledContactIcon,
+	CloseButton,
+	StyledCloseIcon,
 } from './Contact.styled'
 import { ErrorStyled } from '../global/Error.styled'
 import { Spinner } from '../global/Spinner.styled'
 import Success from '../global/Success'
 import Error from '../global/Error'
+import { StatusContext } from '../../context/Status.context'
 
 const validationSchema = Yup.object({
 	name: Yup.string().min(2).required(),
@@ -29,8 +32,8 @@ const validationErrorMessages = {
 }
 
 const Contact = () => {
+	const { openModal, handleModal } = useContext(StatusContext)
 	const [submitting, setSubmitting] = useState(false)
-	const [openForm, setOpenForm] = useState(false)
 	const [success, setSuccess] = useState({
 		state: false,
 		message: '',
@@ -53,7 +56,7 @@ const Contact = () => {
 			state: true,
 			message: 'Wiadomość wysłana',
 		})
-		
+
 		setTimeout(() => {
 			openContactForm()
 			setSuccess({
@@ -87,7 +90,7 @@ const Contact = () => {
 	}
 
 	const openContactForm = () => {
-		setOpenForm((state) => !state)
+		handleModal()
 	}
 
 	return (
@@ -95,12 +98,16 @@ const Contact = () => {
 			<OpenButton onClick={openContactForm}>
 				<StyledContactIcon />
 			</OpenButton>
-			{openForm && (
+			{openModal && (
 				<ContactPopup onClick={openContactForm}>
 					<FormStyled
 						onSubmit={handleSubmit(onSubmit)}
 						onClick={(e) => e.stopPropagation()}
 					>
+						<CloseButton onClick={openContactForm}>
+							<StyledCloseIcon />
+						</CloseButton>
+
 						<LabelStyled htmlFor='name'>
 							Imię
 							<input {...register('name')} />

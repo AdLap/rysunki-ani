@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         overflow-x: hidden;
+        
     }
 
     #root {
@@ -45,6 +46,7 @@ export const GlobalStyle = createGlobalStyle`
 
     button {
         cursor: pointer;
+        background: transparent;
     }
 
     input, textarea {
