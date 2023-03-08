@@ -12,7 +12,7 @@ const Stone = () => {
                 stonePics.length ?
                     stonePics.map((pic, idx) => (
                         <div key={idx}>
-                            <img src={pic.thumb} alt='obrazek na kamieniu' />
+                            <img src={pic.thumb} alt='obrazek na kamieniu' width='300' height='405'/>
                         </div>
                     )) :
                     !error && <h3>loading...</h3>

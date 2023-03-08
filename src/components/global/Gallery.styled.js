@@ -16,6 +16,7 @@ export const GallerySectionStyled = styled.section`
         align-items: center;
         object-fit: cover;
         background: ${({ theme }) => theme.imagesBackground};
+        box-shadow: 0 0px 20px ${({ theme }) => theme.imagesBoxShadow};
 
         img {
             width: 100%;

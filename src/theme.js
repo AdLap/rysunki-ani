@@ -8,6 +8,7 @@ export const theme = {
     spinnerBackgroundColor: '#e1e1e180',
     spinnerColor: '#000000',
     imagesBackground: '#a1a19fc2',
+    imagesBoxShadow: '#363636',
   //  adLapColor: '#ffd700',
 
   // dimensions
