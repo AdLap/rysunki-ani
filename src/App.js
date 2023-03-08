@@ -12,12 +12,12 @@ import Header from './components/header/Header'
 import NavBar from './components/navigation/NavBar'
 import OnCanvas from './components/galleries/onCanvas/OnCanvas'
 import Sketch from './components/galleries/Sketch/Sketch'
+import Stone from './components/galleries/stone/Stone'
 import Footer from './components/footer/Footer'
 import Contact from './components/contact/Contact'
 
 const App = () => {
 	const location = useLocation()
-	const helmetContext = {}
 
 	return (
 		<HelmetProvider>
@@ -28,8 +28,8 @@ const App = () => {
 						<link
 							rel='stylesheet'
 							href='<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">'
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">'
 						/>
 					</Helmet>
 					<Normalize />
@@ -39,8 +39,9 @@ const App = () => {
 					<AnimatePresence>
 						<Routes location={location} key={location.key}>
 							<Route path='/' element={<Home />} />
-							<Route path='/na-plotnie' element={<OnCanvas />} />
+							<Route path='/plotna' element={<OnCanvas />} />
 							<Route path='/szkice' element={<Sketch />} />
+							<Route path='/kamienie' element={<Stone />} />
 							<Route path='/kontakt' element={<Contact />} />
 						</Routes>
 					</AnimatePresence>

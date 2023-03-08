@@ -14,6 +14,8 @@ export const GallerySectionStyled = styled.section`
         display: flex;
         justify-content: center;
         align-items: center;
+        object-fit: cover;
+        background: ${({ theme }) => theme.imagesBackground};
 
         img {
             width: 100%;
