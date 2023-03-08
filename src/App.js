@@ -1,6 +1,6 @@
 import React from "react";
 import { GalleryProvider } from "./context/Gallery.context";
-import { Switch, Route, useLocation } from "react-router";
+import { Routes, Route, useLocation } from "react-router";
 import { Normalize } from 'styled-normalize';
 import { ThemeProvider } from "styled-components";
 import { AnimatePresence } from "framer-motion";
@@ -26,12 +26,12 @@ const App = () => {
         <Header />
         <NavBar />
         <AnimatePresence>
-          <Switch location={location} key={location.key}>
-            <Route exact path='/' component={Home} />
-            <Route path='/na-plotnie' component={OnCanvas} />
-            <Route path='/szkice' component={Sketch} />
-            <Route path='/kontakt' component={Contact} />
-          </Switch>
+          <Routes location={location} key={location.key}>
+            <Route path='/' element={<Home/>} />
+            <Route path='/na-plotnie' element={<OnCanvas/>} />
+            <Route path='/szkice' element={<Sketch/>} />
+            <Route path='/kontakt' element={<Contact/>} />
+          </Routes>
         </AnimatePresence>
         <Footer />
       </ThemeProvider>
