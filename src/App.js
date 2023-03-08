@@ -1,4 +1,5 @@
 import React from 'react'
+import { StatusProvider } from './context/Status.context'
 import { GalleryProvider } from './context/Gallery.context'
 import { Routes, Route, useLocation } from 'react-router'
 import { Normalize } from 'styled-normalize'
@@ -19,24 +20,26 @@ const App = () => {
 	const location = useLocation()
 
 	return (
-		<GalleryProvider>
-			<ThemeProvider theme={theme}>
-				<Normalize />
-				<GlobalStyle />
-				<Header />
-				<NavBar />
-				<AnimatePresence>
-					<Routes location={location} key={location.key}>
-						<Route path='/' element={<Home />} />
-						<Route path='/plotna' element={<OnCanvas />} />
-						<Route path='/szkice' element={<Sketch />} />
-						<Route path='/kamienie' element={<Stone />} />
-					</Routes>
-					<Contact />
-				</AnimatePresence>
-				<Footer />
-			</ThemeProvider>
-		</GalleryProvider>
+		<StatusProvider>
+			<GalleryProvider>
+				<ThemeProvider theme={theme}>
+					<Normalize />
+					<GlobalStyle />
+					<Header />
+					<NavBar />
+					<AnimatePresence>
+						<Routes location={location} key={location.key}>
+							<Route path='/' element={<Home />} />
+							<Route path='/plotna' element={<OnCanvas />} />
+							<Route path='/szkice' element={<Sketch />} />
+							<Route path='/kamienie' element={<Stone />} />
+						</Routes>
+						<Contact />
+					</AnimatePresence>
+					<Footer />
+				</ThemeProvider>
+			</GalleryProvider>
+		</StatusProvider>
 	)
 }
 
