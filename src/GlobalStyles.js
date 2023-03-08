@@ -45,6 +45,7 @@ export const GlobalStyle = createGlobalStyle`
 
     button {
         cursor: pointer;
+        background: transparent;
     }
 
     input, textarea {

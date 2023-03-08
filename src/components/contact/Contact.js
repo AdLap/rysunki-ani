@@ -10,6 +10,8 @@ import {
 	LabelStyled,
 	OpenButton,
 	StyledContactIcon,
+	CloseButton,
+	StyledCloseIcon,
 } from './Contact.styled'
 import { ErrorStyled } from '../global/Error.styled'
 import { Spinner } from '../global/Spinner.styled'
@@ -53,7 +55,7 @@ const Contact = () => {
 			state: true,
 			message: 'Wiadomość wysłana',
 		})
-		
+
 		setTimeout(() => {
 			openContactForm()
 			setSuccess({
@@ -101,6 +103,10 @@ const Contact = () => {
 						onSubmit={handleSubmit(onSubmit)}
 						onClick={(e) => e.stopPropagation()}
 					>
+						<CloseButton onClick={openContactForm}>
+							<StyledCloseIcon />
+						</CloseButton>
+
 						<LabelStyled htmlFor='name'>
 							Imię
 							<input {...register('name')} />
