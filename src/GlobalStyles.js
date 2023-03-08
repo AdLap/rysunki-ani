@@ -1,8 +1,6 @@
 import { createGlobalStyle } from "styled-components/macro";
 
 export const GlobalStyle = createGlobalStyle`
-     @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;0,900;1,400;1,700&display=swap');
-
     html {
         font-size: 18px;
         font-family: 'Lato', sans-serif;
