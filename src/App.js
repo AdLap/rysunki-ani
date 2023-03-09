@@ -29,7 +29,7 @@ const App = () => {
 					<NavBar />
 					<AnimatePresence>
 						<Routes location={location} key={location.key}>
-							<Route path='/rysunki-ani/' element={<Home />} />
+							<Route path='/' element={<Home />} />
 							<Route path='/plotna' element={<OnCanvas />} />
 							<Route path='/szkice' element={<Sketch />} />
 							<Route path='/kamienie' element={<Stone />} />
