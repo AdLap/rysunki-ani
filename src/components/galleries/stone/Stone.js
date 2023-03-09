@@ -2,12 +2,12 @@ import React, { useContext } from 'react'
 import { GalleryContext } from '../../../context/Gallery.context'
 import Gallery from '../Gallery'
 
-const OnCanvas = () => {
-	const { canvasPics } = useContext(GalleryContext)
+const Stone = () => {
+	const { stonePics } = useContext(GalleryContext)
 
 	return (
-		<Gallery items={canvasPics} />
+		<Gallery items={stonePics}/>
 	)
 }
 
-export default OnCanvas
+export default Stone
