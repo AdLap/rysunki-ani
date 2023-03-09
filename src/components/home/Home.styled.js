@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledHomeSection = styled.section`
     display: grid;
-    gap: 1rem;
+    align-items: center;
 
     @media (min-width: ${({ theme }) => theme.tablet}) {
         grid-template-columns: repeat(2, 50%);
