@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/rysunki-ani/static/js/main.eca86b6f.js",
+    "main.js": "/rysunki-ani/static/js/main.6547d326.js",
     "static/media/kot.jpg": "/rysunki-ani/static/media/kot.d6a90b46c67e9471f27f.jpg",
     "static/media/bg-header.jpg": "/rysunki-ani/static/media/bg-header.dcf94acab4b44b874708.jpg",
     "index.html": "/rysunki-ani/index.html",
-    "main.eca86b6f.js.map": "/rysunki-ani/static/js/main.eca86b6f.js.map"
+    "main.6547d326.js.map": "/rysunki-ani/static/js/main.6547d326.js.map"
   },
   "entrypoints": [
-    "static/js/main.eca86b6f.js"
+    "static/js/main.6547d326.js"
   ]
 }
